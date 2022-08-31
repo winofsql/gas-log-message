@@ -9,14 +9,14 @@
 var counter = 0;
 $(function(){
 
-    $("#btn").on("click",function(){
-        google.script.run.CheckLogger("ボタンクリック");
-        google.script.run.CheckConsole("ボタンクリック");
-        // google.script.run.CheckFromHtml("ボタンクリック"); // Browser.msgBox を使用すると本体の HTML が終了してしまう
-        // 本体での処理( テンプレートリテラル使用 )
-        console.log(`本体での処理 : ${ counter++ }`);
-        alert(`本体での処理 : ${ counter++ }`);
-    });
+  $("#btn").on("click",function(){
+      google.script.run.CheckLogger("ボタンクリック");
+      google.script.run.CheckConsole("ボタンクリック");
+      // google.script.run.CheckFromHtml("ボタンクリック"); // Browser.msgBox を使用すると本体の HTML が終了してしまう
+      // 本体での処理( テンプレートリテラル使用 )
+      console.log(`本体での処理 : ${ counter++ }`);
+      alert(`本体での処理 : ${ counter++ }`);
+  });
 
 });
 </script>
