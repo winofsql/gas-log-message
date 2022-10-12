@@ -2,9 +2,10 @@
 // メニューの追加
 // ************************************
 function onOpen(e) {
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('GAS の LOG テスト')
-     .addItem('GasLogTest', 'GasLogTest')
+
+  var cur_ui = SpreadsheetApp.getUi();
+  cur_ui.createMenu('GAS の LOG テスト')
+     .addItem('ダイアログ表示', 'GasLogTest')
      .addToUi();
   
 }
@@ -13,20 +14,23 @@ function onOpen(e) {
 // テンプレートリテラルは
 // Chrome V8 ランタイムを有効にする
 // ************************************
-function CheckFromHtml(param) {
-  Browser.msgBox(`HTML より呼びだされました : ${param}`);
+function CheckAlert(param) {
+  SpreadsheetApp.getUi().alert(`alett が HTML より呼びだされました : ${param}`);
 }
 function CheckLogger(param) {
-  Logger.log(`HTML より呼びだされました : ${param}` );
+  Logger.log(`Logger.log が HTML より呼びだされました : ${param}` );
 }
 function CheckConsole(param) {
-  console.log(`HTML より呼びだされました : ${param}` );
+  console.log(`console.log が HTML より呼びだされました : ${param}` );
 }
 
 // ************************************
 // メニューの実行部分
 // ************************************
 function GasLogTest() {
+
+  CheckAlert("ダイアログ呼び出し");
+
   var html = HtmlService.createHtmlOutputFromFile('use-jquery.html')
      .setWidth(750)
      .setHeight(480);
